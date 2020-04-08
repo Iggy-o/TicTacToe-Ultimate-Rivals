@@ -16,27 +16,16 @@ body {
     position: relative;
     top: 5vh;
     left: 3vw;
-    /*background-color: blue;
-    /*display: flex;
-    /*left: calc(17vh - 3vw);
-    top: calc(30vh - 20vw);*/
 }
 
 #centerer2{
-    /*position: absolute;*/
     width: 100vw;
     height: 100vh;
     display: inline-block;
     justify-content: center;
-    /*display: flex;
-    /*left: calc(17vh - 3vw);
-    top: calc(30vh - 20vw);*/
 }
 
 #mainTitle{
-    /*position: absolute;
-    top: 3vh;
-    left: 15%;*/
     font: 12vw arial black;
     font-weight: bolder;
     color: rgb(150, 150, 150);
