@@ -9,7 +9,7 @@
         var difficulty = 0;
         
         
-                private function moveFunc(id) {
+                function moveFunc(id) {
                    
                     var filler = document.getElementById(id);
                     
