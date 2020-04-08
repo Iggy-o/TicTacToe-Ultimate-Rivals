@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>TicTacToe: Ultimate Rivals</title>
+        <meta name = "viewport" content = "width=device-width, initial-scale=1.0">
+    </head>
+		<link rel="stylesheet" type="text/css" href="style.css">
+    <body>
+        
+<!--Audio-->
+<audio id = "mainMusic" loop>
+    <source src = "https://www.mboxdrive.com/GENES - These Words That I Can't Get Out.mp3" type="audio/mpeg"> 
+</audio>
+
+<audio id = "clickSound">
+    <source src = "http://cd.textfiles.com/warcraftm/MCRAFT/SOUNDS/CLUNK.WAV" type="audio/wav"> 
+</audio>
+
+<audio id = "menuClick">
+    <source src = "http://www.kalmanovitz.co.il/courses/English/construction/Assets/Mousclik.wav" type="audio/mpeg"> 
+</audio>
+
+<audio id = "winSound">
+    <source src = "http://b5.cs.uwyo.edu/bab5/snds/chime.wav" type="audio/mpeg"> 
+</audio>
+
+<audio id = "loseSound">
+    <source src = "http://dight310.byu.edu/media/audio/FreeLoops.com/2/2/Computer%20Error.wav-17394-Free-Loops.com.mp3" type="audio/mpeg"> 
+</audio>
+
+<audio id = "pieceSound">
+    <source src = "http://dight310.byu.edu/media/audio/FreeLoops.com/5/5/Mouse%20Click%20Fast.wav" type="audio/mpeg"> 
+</audio>
+
+
+<!--Main Menu-->
+        <div id = "mainMenu">
+            <article id = "centerer2">
+            <div id = "centerer1">
+            <p id = "mainTitle">Tic•Tac•Toe</p>
+            <p id = "subtitle">Ultimate Rivals</p>
+            </div>
+            </article>
+            <article id = "frontPage">
+                <button id = "play" onclick = "startUp()">Play</button>
+                <button id = "credits" onclick = "rollCredits()">Credits</button>
+                
+                <div id = "links">
+                    <a href = "https://www.youtube.com/channel/UCud4cJjtCjEwKpynPz-nNaQ?view_as=subscriber" target = '_blank' ><img src = "https://cdn3.iconfinder.com/data/icons/popular-services-brands/512/youtube-512.png" height = "50px" width = "50px" alt = "" id = "YT"/>
+                        </a>
+                    <a href = "https://www.sololearn.com/Profile/14720144" target = '_blank' ><img src = "https://cdn-images-1.medium.com/max/1200/1*QNimSWsBQxta_xt3XksQaw.png" height = "50px" width = "50px" alt = "" id = "Sololearn"/>
+                        </a>
+                    <a href = "https://www.instagram.com/iggy.o_/?hl=en" target = '_blank' ><img src = "https://cdn4.iconfinder.com/data/icons/social-messaging-ui-color-shapes-2-free/128/social-instagram-new-circle-512.png" height = "50px" width = "50px" alt = "" id = "Insta"/>
+                        </a>
+                </div>
+                
+                <p id = "studioShoutout">A <i>Mystic Studios©</i> Production</p>
+            
+            </article>
+            
+            
+            
+            <article id = "multiSinglePlayerPage">
+                
+                <button id = "singleplayer" class = "buttonsOpen" onclick = "playerPage(1)">1 Player</button>
+                <button id = "multiplayer" class = "buttonsOpen" onclick = "playerPage(2)">2 Player</button>
+                <button id = "backButton" onclick = "backToLastPage()">Back</button>
+                
+            </article>
+            
+            
+            
+            <article id = "modePage">
+                
+                <button id = "easyMode" class = "buttonsOpen" onclick = "difficultyPage('easy')">Easy</button>
+                <button id = "hardMode" class = "buttonsOpen" onclick = "difficultyPage('hard')">Hard</button>
+                <button id = "insanityMode" class = "buttons" onclick = "difficultyPage('insanity')">Insanity</button>
+                <button id = "backButton" onclick = "backToLastPage()">Back</button>
+                
+            </article>
+            
+            
+            
+            <article id = "creditsPage">
+                <p class = "promo"><b>Programmer</b> <br><sub>Ighoise Odigie</sub><br><br><b>Music</b> <br><i><sub>"These Words That I Can't Get Out"</sub></i> <br> <sub>Genes</sub><br><br><b>Project</b><br><sub>•Made in 9 Days</sub><br><sub>•Started on January, 6 2019</sub>
+                    <br> <br> <small class = "smaller">Version 1.4.3</small></p> 
+                <button id = "backButton" onclick = "backToLastPage()">Back</button>
+            </article>
+            
+            
+        </div>
+        
+<!--Game Board-->
+    <div id = "gameBoard"> 
+        <p id = "pauseButton" onclick = "pauseGame()"><b>ll</b></p>
+    
+    
+        <table border = 1>
+            <tr class = "top">
+                <td id = "box1" onclick = "moveFunc(id)"></td>
+                <td id = "box2" onclick = "moveFunc(id)"></td>
+                <td id = "box3" onclick = "moveFunc(id)"></td>
+            </tr>
+            
+            <tr >
+                <td id = "box4" onclick = "moveFunc(id)"></td>
+                <td id = "box5" onclick = "moveFunc(id)"></td>
+                <td id = "box6" onclick = "moveFunc(id)"></td>
+            </tr>
+            
+            <tr class = "bottom">
+                <td id = "box7" onclick = "moveFunc(id)"></td>
+                <td id = "box8" onclick = "moveFunc(id)"></td>
+                <td id = "box9" onclick = "moveFunc(id)"></td>
+            </tr>
+        </table>
+        
+        <div id = "scoreX">
+        <p id = "playerNameX"></p>
+        <p id = "scoreBoardX">0</p>
+        </div>
+        
+        <div id = "scoreO">
+        <p id = "playerNameO"></p>
+        <p id = "scoreBoardO">0<p>
+        </div>
+
+     </div>
+     
+<!--Menu-->
+        
+        <div id = "menu">
+            
+            <!--<p id = "muteButton" onclick = "muteGame()">🎵</p>-->
+            <p id = "exitButton" onclick = "unpauseGame()">X</p>   
+            
+            <article id = "textCenter">
+                <p id = "gameEndText">Placer Text</p>
+            </article>
+            <button id = "resetButton" onclick = "resetFunc()">New Game</button>
+            <button id = "mainMenuButton" onclick = "mainMenuFunc()">Main Menu</button>
+            <!--<button id = "muteButton" onclick = "muteGame()">Mute</button>-->
+        
+        </div>
+			<script src="script.js"></script> 
+    </body>
+</html>
