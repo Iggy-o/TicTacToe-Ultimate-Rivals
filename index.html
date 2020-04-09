@@ -47,16 +47,16 @@
 
 			<!--Main Menu-->
 			<div id = "mainMenu">
-				<article id = "centerer2">
-					<div id = "centerer1">
-						<p id = "mainTitle">Tic•Tac•Toe</p>
-						<p id = "subtitle">Ultimate Rivals</p>
-					</div>
-				</article>
-
 				<article id = "frontPage">
-					<button id = "play" onclick = "startUp()">Play</button>
-					<button id = "credits" onclick = "rollCredits()">Credits</button>
+					<article id = "centerer2">
+						<div id = "centerer1">
+							<p id = "mainTitle">Tic•Tac•Toe</p>
+							<p id = "subtitle">Ultimate Rivals</p>
+						</div>
+					</article>
+
+					<button id = "play" onclick = "pageManager('multiSinglePlayerPage')">Play</button>
+					<button id = "credits" onclick = "pageManager('creditsPage')">Credits</button>
 					
 					<div id = "links">
 						<a href = "https://www.youtube.com/channel/UCud4cJjtCjEwKpynPz-nNaQ" target = '_blank' >
@@ -74,19 +74,37 @@
 				</article>
 					
 				<article id = "multiSinglePlayerPage">
-					<button id = "singleplayer" class = "buttonsOpen" onclick = "playerPage(1)">1 Player</button>
-					<button id = "multiplayer" class = "buttonsOpen" onclick = "playerPage(2)">2 Player</button>
+					<article id = "centerer2">
+						<div id = "centerer1">
+							<p id = "mainTitle">Tic•Tac•Toe</p>
+							<p id = "subtitle">Ultimate Rivals</p>
+						</div>
+					</article>
+					<button id = "singleplayer" class = "buttonsOpen" onclick = "pageManager('modePage')">1 Player</button>
+					<button id = "multiplayer" class = "buttonsOpen" onclick = "pageManager('gameBoard')">2 Player</button>
 					<button id = "backButton" onclick = "backToLastPage()">Back</button>
 				</article>
 						
 				<article id = "modePage">
-					<button id = "easyMode" class = "buttonsOpen" onclick = "difficultyPage('easy')">Easy</button>
-					<button id = "hardMode" class = "buttonsOpen" onclick = "difficultyPage('hard')">Hard</button>
-					<button id = "insanityMode" class = "buttons" onclick = "difficultyPage('insanity')">Insanity</button>
+					<article id = "centerer2">
+						<div id = "centerer1">
+							<p id = "mainTitle">Tic•Tac•Toe</p>
+							<p id = "subtitle">Ultimate Rivals</p>
+						</div>
+					</article>
+					<button id = "easyMode" class = "buttonsOpen" onclick = "pageManager('gameBoard')">Easy</button>
+					<button id = "hardMode" class = "buttonsOpen" onclick = "pageManager('gameBoard')">Hard</button>
+					<button id = "insanityMode" class = "buttons" onclick = "pageManager('gameBoard')">Insanity</button>
 					<button id = "backButton" onclick = "backToLastPage()">Back</button>					
 				</article>
 					
 				<article id = "creditsPage">
+					<article id = "centerer2">
+						<div id = "centerer1">
+							<p id = "mainTitle">Tic•Tac•Toe</p>
+							<p id = "subtitle">Ultimate Rivals</p>
+						</div>
+					</article>
 					<p class = "promo"><b>Programmer</b><br>
 						<sub>Ighoise Odigie</sub><br><br>
 						<b>Music</b><br>

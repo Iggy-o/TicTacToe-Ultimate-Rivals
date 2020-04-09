@@ -1,13 +1,44 @@
 //Made by Ighoise
 
-//Code only runs once HTML is ready
-//$( document ).ready([function()]);
-
 //Part 1: Screens and Audio
-	// (1) Screen Manager
-	// (2) Audio Manager
+	/*
+	(1)Screen Manager:
+		The most recent 3 pages are saved and can be 
+		switched to based on user input
+	*/
+		var farPage;
+		var previousPage;
+		var currentPage = 'frontPage';
+		function pageManager(newPage) {
+			audioStart();
+			$('#' + currentPage).hide();
+			$('#' + newPage).show();
+			farPage = previousPage
+			previousPage = currentPage
+			currentPage = newPage
+		}
+		function backToLastPage(){
+			audioStart();
+			$('#' + currentPage).hide();
+			$('#' + previousPage).show();
+			currentPage = previousPage
+			previousPage = farPage
+			farPage = null
+		}
+
+	/*
+	(2) Audio Manager
+		All audio volume and queues are controlled
+		through the following functions which are called elsewhere
+	*/
+		function audioStart(){
+			$('#' + "mainMusic").trigger('play')
+			$('#' + "mainMusic").prop('volume', 0.1)
+			$('#' + "clickSound").trigger('play')
+			$('#' + "clickSound").prop('volume', 0.6)
+		}
 	
-	var mainMenu = document.getElementById("mainMenu")
+	/*var mainMenu = document.getElementById("mainMenu")
 	var front = document.getElementById("frontPage")
 	var credits = document.getElementById("creditsPage")
 	var gamemode = document.getElementById("multiSinglePlayerPage")
@@ -141,4 +172,4 @@
 			front.style.display = "inline-block"
 			menu.style.display = "none"
 			exitButton.style.display = "none"
-	}
+	}*/
