@@ -48,80 +48,77 @@
 			<!--Main Menu-->
 			<div id = "mainMenu">
 				<article id = "frontPage">
-					<article id = "centerer2">
-						<div id = "centerer1">
-							<p id = "mainTitle">Tic•Tac•Toe</p>
-							<p id = "subtitle">Ultimate Rivals</p>
-						</div>
-					</article>
-
-					<button id = "play" onclick = "pageManager('multiSinglePlayerPage')">Play</button>
-					<button id = "credits" onclick = "pageManager('creditsPage')">Credits</button>
-					
+					<div class = "centerer">
+						<p id = "mainTitle">Tic•Tac•Toe</p>
+						<p id = "subtitle">Ultimate Rivals</p>
+					</div>
+					<div class = "buttonBox">
+						<button id = "play" class = "buttons" onclick = "pageManager('multiSinglePlayerPage')">Play</button>
+						<button id = "credits" class = "buttons" onclick = "pageManager('creditsPage')">Credits</button>
+					</div>
 					<div id = "links">
 						<a href = "https://www.youtube.com/channel/UCud4cJjtCjEwKpynPz-nNaQ" target = '_blank' >
-							<img src = "images/youtube.webp" height = "50px" width = "50px" alt = "YT" id = "YT"/>
+							<img src = "images/youtube.webp" height = "50px" width = "50px" alt = "Youtube" id = "YT"/>
 						</a>
 
 						<a href = "https://www.sololearn.com/Profile/14720144" target = '_blank' >
-							<img src = "images/sololearn.png" height = "50px" width = "50px" alt = "SL" id = "Sololearn"/>
+							<img src = "images/sololearn.png" height = "50px" width = "50px" alt = "Sololearn" id = "Sololearn"/>
 						</a>
 
 						<a href = "https://www.instagram.com/iggy.o_/?hl=en" target = '_blank' >
-							<img src = "images/instagram.webp" height = "50px" width = "50px" alt = "IG" id = "Insta"/>
+							<img src = "images/instagram.webp" height = "50px" width = "50px" alt = "Instagram" id = "Insta"/>
 						</a>
 					</div>
 				</article>
 					
 				<article id = "multiSinglePlayerPage">
-					<article id = "centerer2">
-						<div id = "centerer1">
-							<p id = "mainTitle">Tic•Tac•Toe</p>
-							<p id = "subtitle">Ultimate Rivals</p>
-						</div>
-					</article>
-					<button id = "singleplayer" class = "buttonsOpen" onclick = "pageManager('modePage')">1 Player</button>
-					<button id = "multiplayer" class = "buttonsOpen" onclick = "pageManager('gameBoard')">2 Player</button>
-					<button id = "backButton" onclick = "backToLastPage()">Back</button>
+					<div class = "centerer">
+						<p id = "mainTitle">Tic•Tac•Toe</p>
+						<p id = "subtitle">Ultimate Rivals</p>
+					</div>			
+					<div class = "buttonBox">
+						<button id = "singleplayer" class = "buttons" onclick = "pageManager('modePage')">1 Player</button>
+						<button id = "multiplayer" class = "buttons" onclick = "pageManager('gameBoard'), gameMode2()">2 Player</button>
+					</div>
+					<button id = "backButton" class = "buttons" onclick = "backToLastPage()">Back</button>
 				</article>
 						
 				<article id = "modePage">
-					<article id = "centerer2">
-						<div id = "centerer1">
-							<p id = "mainTitle">Tic•Tac•Toe</p>
-							<p id = "subtitle">Ultimate Rivals</p>
-						</div>
-					</article>
-					<button id = "easyMode" class = "buttonsOpen" onclick = "pageManager('gameBoard')">Easy</button>
-					<button id = "hardMode" class = "buttonsOpen" onclick = "pageManager('gameBoard')">Hard</button>
-					<button id = "insanityMode" class = "buttons" onclick = "pageManager('gameBoard')">Insanity</button>
-					<button id = "backButton" onclick = "backToLastPage()">Back</button>					
+					<div class = "centerer">
+						<p id = "mainTitle">Tic•Tac•Toe</p>
+						<p id = "subtitle">Ultimate Rivals</p>
+					</div>
+					<div class = "buttonBox">
+						<button id = "easyMode" class = "buttons" onclick = "pageManager('gameBoard'), gameMode1('easy')">Easy</button>
+						<button id = "hardMode" class = "buttons" onclick = "pageManager('gameBoard'), gameMode1('hard')">Hard</button>
+						<button id = "insanityMode" class = "buttons" onclick = "pageManager('gameBoard'), gameMode1('insanity')">Insanity</button>
+					</div>
+					<button id = "backButton" class = "buttons" onclick = "backToLastPage()">Back</button>					
 				</article>
 					
 				<article id = "creditsPage">
-					<article id = "centerer2">
-						<div id = "centerer1">
-							<p id = "mainTitle">Tic•Tac•Toe</p>
-							<p id = "subtitle">Ultimate Rivals</p>
-						</div>
-					</article>
+					<div class = "centerer">
+						<p id = "mainTitle">Tic•Tac•Toe</p>
+						<p id = "subtitle">Ultimate Rivals</p>
+					</div>
 					<p class = "promo"><b>Programmer</b><br>
 						<sub>Ighoise Odigie</sub><br><br>
 						<b>Music</b><br>
 						<i><sub>"These Words That I Can't Get Out"</sub></i><br>
 						<sub>Genes</sub><br><br>
 						<b>Project</b><br>
-						<sub>•Made in 9 Days</sub><br>
-						<sub>•Started on January, 6 2019</sub><br><br>
+						<sub>•Made in 1 Month</sub><br>
+						<sub>•Started on January, 6 2019</sub><br>
+						<sub>•Ended on TBD</sub><br><br>
 						<small class = "smaller">Version 1.4.3</small>
 					</p> 
-					<button id = "backButton" onclick = "backToLastPage()">Back</button>
+					<button id = "backButton" class = "buttons" onclick = "backToLastPage()">Back</button>
 				</article>	
 			</div>
 							
 			<!--Game Board-->
 			<div id = "gameBoard"> 
-				<p id = "pauseButton" onclick = "pauseGame()"><b>ll</b></p>
+				<p id = "pauseButton" class = "buttons smallButton" onclick = "pageManager('menu'), pauseGame()"><b>ll</b></p>
 
 				<!--Tiles-->
 				<table border = 1>
@@ -158,14 +155,15 @@
 					
 			<!--Menu-->		
 			<div id = "menu">
-				<p id = "exitButton" onclick = "unpauseGame()">X</p>   
+				<p id = "exitButton" class = 'buttons smallButton' onclick = "backToLastPage(), unpauseGame()">X</p>   
 			
 				<article id = "textCenter">
 					<p id = "gameEndText">Placer Text</p>
 				</article>
-
-				<button id = "resetButton" onclick = "resetFunc()">New Game</button>
-				<button id = "mainMenuButton" onclick = "mainMenuFunc()">Main Menu</button>
+				<div class = "buttonBox">
+					<button id = "resetButton" class = "buttons" onclick = "backToLastPage(), resetFunc()">New Game</button>
+					<button id = "mainMenuButton" class = "buttons" onclick = "pageManager('frontPage'), resetFunc()">Main Menu</button>
+				</div>
 			</div>
 
 			<!--JS-->

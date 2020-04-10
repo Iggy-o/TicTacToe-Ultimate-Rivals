@@ -1,9 +1,52 @@
 //Made by Ighoise
 
 //Part 2: Gameplay
-	// (1) Turn Manager
-	// (2) Win/Lose Recognition
-	// (3) Algorithms
+/*
+(1)Game Settings
+	Saves the Game Difficulty, Gamemode, 
+	and determines the player tags beforehand
+*/
+	function gameMode1(input) {
+		gameMode = 1
+		type = gameMode
+		$("#playerNameX").text("You")
+		$("#playerNameO").text("Bot")
+		xPhrase = "You Win"
+		oPhrase = "You Lose"
+		difficulty = input
+		console.log("gameMode Set", difficulty);
+	}
+
+	function gameMode2() {
+		gameMode = 2
+		type = gameMode
+		$("#playerNameX").text("Player X")
+		$("#playerNameO").text("Player O")
+		xPhrase = "X Wins"
+		oPhrase = "O Wins"
+		console.log("gameMode Set");
+	}
+
+//(2)Turn Manager
+//(3)Algorithms
+//(4)Win/Lose Detection
+
+/*
+(5)Game Reset:
+	Runs through each board tile
+	and resets its value to start
+	a fresh new game
+*/
+	function resetFunc() {
+		for (i=1; i<10; i++) {
+			$('#' + 'box' + i).html('');
+		}
+		allowPlace = true;
+		playerTurn = 1;
+	} 
+
+
+
 
 	var playerTurn = 1
 
@@ -562,7 +605,8 @@
 									}
 									
 							setTimeout(function(){
-									gameOver();
+									resetFunc();
+									pageManager('menu');
 							}, 2000)
 					}
 							

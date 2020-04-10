@@ -27,7 +27,7 @@
 		}
 
 	/*
-	(2) Audio Manager
+	(2) Audio Manager:
 		All audio volume and queues are controlled
 		through the following functions which are called elsewhere
 	*/
@@ -37,6 +37,21 @@
 			$('#' + "clickSound").trigger('play')
 			$('#' + "clickSound").prop('volume', 0.6)
 		}
+
+	/*TEMPPPPPPPP
+	(3)Pause Menu:
+		When the game is paused the text
+		must be changed
+	*/
+	function pauseGame() {
+		$('#exitButton').show()
+		$("#gameEndText").text("Paused")
+	}
+
+	function unpauseGame() {
+		$('#exitButton').hide()	
+	}
+
 	
 	/*var mainMenu = document.getElementById("mainMenu")
 	var front = document.getElementById("frontPage")
@@ -150,14 +165,7 @@
 			document.getElementById("menuClick").play()
 	}
 
-	function resetFunc() {
-			for (i=1; i<10; i++) {
-					document.getElementById("box" + i).innerHTML = '';
-			}
-			document.getElementById("clickSound").play()
-			gameBoard.style.display = "inline-block"
-			menu.style.display = "none"
-	}
+	
 
 	function mainMenuFunc() {
 			for (i=1; i<10; i++) {
