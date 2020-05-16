@@ -194,14 +194,15 @@ td:hover{
 #scoreBoardO{
     position: relative;
     top: -15vw;
-    font: 8vw arial-black;
+    font: 8vw arial black;
     color: grey;
 }
 
 #playerNameO{
     position: relative;
     top: -7vw;
-    font: 7vw arial-black;
+    font: 7vw arial black;
+    font-weight: bolder;
     color: grey;
 }
 
