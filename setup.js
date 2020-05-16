@@ -4,6 +4,10 @@
 //Github: https://github.com/Iggy-o
 //Preview: https://repl.it/@IghoiseO/TicTacToe
 
+//Preliminary Tasks: Versioning
+var versionNumber = "Version 2.1.1"
+$("#version").text(versionNumber)
+
 //Part 1: Screens and Audio
 	/*
 	(1)Screen Manager:
@@ -50,3 +54,21 @@
 				.trigger('play')
 				.prop('volume', 0.6)
 		}
+
+    function pieceAudio() {
+     $("#pieceSound")
+      .trigger('play')
+			.prop('volume', 0.05)
+    }
+
+    function endSound(state){
+      if (state == "win") {
+        document.getElementById("winSound").play()
+			  document.getElementById("winSound").volume = 0.2
+      }
+      else if(state == "lose") {
+        document.getElementById("loseSound").play()
+				document.getElementById("loseSound").volume = 0.2
+      }
+      
+    }

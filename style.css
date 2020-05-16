@@ -228,7 +228,7 @@ td:hover{
 /*Slightly alters the default CSS depending on width and height of the device*/
 @media all and (orientation: landscape){
 	#mainTitle{
-		font-size: 12vh; 
+		font-size: 12vh;
 	}
 
 	#subtitle{
@@ -304,6 +304,6 @@ td:hover{
 	}
 
 	#gameEndText{
-			font: 10vh 'arial black';
+		font: 10vh 'arial black';
 	}
 }

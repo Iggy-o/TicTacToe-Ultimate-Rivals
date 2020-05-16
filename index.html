@@ -6,7 +6,6 @@ Github: https://github.com/Iggy-o
 Preview: https://repl.it/@IghoiseO/TicTacToe
 -->
 
-
 <!DOCTYPE html>
 	<html>
 		<head>
@@ -22,7 +21,6 @@ Preview: https://repl.it/@IghoiseO/TicTacToe
 			<!--Jquery-->
 			<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js">
 			</script>
-
 		</head>
 		<body>				
 			<!--Audio-->
@@ -30,84 +28,88 @@ Preview: https://repl.it/@IghoiseO/TicTacToe
 				<audio id = "mainMusic" loop>
 					<source src = "sounds/backtrack.mp3" type="audio/mpeg" > 
 				</audio>
-
 				<audio id = "clickSound">
 					<source src = "sounds/menuclick.wav" type="audio/wav"> 
 				</audio>
-
 				<audio id = "menuClick" >
 					<source src = "sounds/pauseclick.wav" type="audio/wav"> 
 				</audio>
-
 				<audio id = "winSound">
 					<source src = "sounds/won.wav" type="audio/wav"> 
 				</audio>
-
 				<audio id = "loseSound">
 					<source src = "sounds/lost.mp3" type="audio/mpeg"> 
 				</audio>
-
 				<audio id = "pieceSound">
 					<source src = "sounds/piece.wav" type="audio/wav"> 
 				</audio>
 			</div>
-
 			<!--Main Menu-->
 			<div id = "mainMenu">
+        <!--First Page-->
 				<article id = "frontPage">
+          <!--Title-->
 					<div class = "centerer">
 						<p id = "mainTitle">Tic•Tac•Toe</p>
 						<p id = "subtitle">Ultimate Rivals</p>
 					</div>
+          <!--First Buttons-->
 					<div class = "buttonBox">
 						<button id = "play" class = "buttons" onclick = "pageManager('multiSinglePlayerPage')">Play</button>
 						<button id = "credits" class = "buttons" onclick = "pageManager('creditsPage')">Credits</button>
 					</div>
+          <!--Personal Links-->
 					<div id = "links">
 						<a href = "https://www.youtube.com/channel/UCud4cJjtCjEwKpynPz-nNaQ" target = '_blank' >
 							<img src = "images/youtube.webp" height = "50px" width = "50px" alt = "Youtube" id = "YT"/>
 						</a>
-
 						<a href = "https://www.sololearn.com/Profile/14720144" target = '_blank' >
 							<img src = "images/sololearn.png" height = "50px" width = "50px" alt = "Sololearn" id = "Sololearn"/>
 						</a>
-
 						<a href = "https://github.com/Iggy-o" target = '_blank' >
 							<img src = "images/github.png" height = "50px" width = "50px" alt = "Instagram" id = "Insta"/>
 						</a>
 					</div>
-				</article>
-					
+				</article>	
+        <!--The Player Select Page-->
 				<article id = "multiSinglePlayerPage">
+          <!--Title-->
 					<div class = "centerer">
 						<p id = "mainTitle">Tic•Tac•Toe</p>
 						<p id = "subtitle">Ultimate Rivals</p>
-					</div>			
+					</div>		
+          <!--The Player Buttons-->	
 					<div class = "buttonBox">
 						<button id = "singleplayer" class = "buttons" onclick = "pageManager('modePage')">1 Player</button>
 						<button id = "multiplayer" class = "buttons" onclick = "pageManager('gameBoard'), gameMode2()">2 Player</button>
 					</div>
+          <!--The Back Button-->
 					<button id = "backButton" class = "buttons" onclick = "backToLastPage()">Back</button>
 				</article>
-						
+        <!--The AI Difficulty Page-->
 				<article id = "modePage">
+          <!--The Title-->
 					<div class = "centerer">
 						<p id = "mainTitle">Tic•Tac•Toe</p>
 						<p id = "subtitle">Ultimate Rivals</p>
 					</div>
+          <!--The Mode Buttons-->
 					<div class = "buttonBox">
-						<button id = "easyMode" class = "buttons" onclick = "pageManager('gameBoard'), gameMode1('easy')">Easy</button>
-						<button id = "hardMode" class = "buttons" onclick = "pageManager('gameBoard'), gameMode1('hard')">Hard</button>
-						<button id = "insanityMode" class = "buttons" onclick = "pageManager('gameBoard'), gameMode1('insanity')">Insanity</button>
+						<button id = "easyMode" class = "buttons" onclick = "pageManager('gameBoard'), gameMode1('easy')">Amateur</button>
+						<button id = "hardMode" class = "buttons" onclick = "pageManager('gameBoard'), gameMode1('hard')">Experienced</button>
+						<button id = "insanityMode" class = "buttons" onclick = "pageManager('gameBoard'), gameMode1('insanity')">Elite</button>
 					</div>
+          <!--The Back Button-->
 					<button id = "backButton" class = "buttons" onclick = "backToLastPage()">Back</button>					
-				</article>
-					
+				</article>	
+        <!--The Credits Page-->
 				<article id = "creditsPage">
+          <!--The Title-->
 					<div class = "centerer">
 						<p id = "mainTitle">Tic•Tac•Toe</p>
 						<p id = "subtitle">Ultimate Rivals</p>
 					</div>
+          <!--The Credits Text-->
 					<p class = "promo"><b>Programmer</b><br>
 						<sub>Ighoise Odigie</sub><br><br>
 						<b>Music</b><br>
@@ -117,49 +119,46 @@ Preview: https://repl.it/@IghoiseO/TicTacToe
 						<sub>•Made in 1 Month</sub><br>
 						<sub>•Started on January, 6 2019</sub><br>
 						<sub>•Ended on TBD</sub><br><br>
-						<small class = "smaller">Version 1.4.3</small>
+						<small class = "smaller" id = "version">Version 1.4.3</small>
 					</p> 
+          <!--The Back Button-->
 					<button id = "backButton" class = "buttons" onclick = "backToLastPage()">Back</button>
 				</article>	
-			</div>
-							
+			</div>				
 			<!--Game Board-->
 			<div id = "gameBoard"> 
 				<p id = "pauseButton" class = "buttons smallButton" onclick = "pauseGame()"><b>ll</b></p>
-
 				<!--Tiles-->
 				<table border = 1>
+          <!--Top Row-->
 					<tr class = "top">
 						<td id = "box1" onclick = "moveFunc(id)"></td>
 						<td id = "box2" onclick = "moveFunc(id)"></td>
 						<td id = "box3" onclick = "moveFunc(id)"></td>
 					</tr>
-					
+          <!--Middle Row-->
 					<tr >
 						<td id = "box4" onclick = "moveFunc(id)"></td>
 						<td id = "box5" onclick = "moveFunc(id)"></td>
 						<td id = "box6" onclick = "moveFunc(id)"></td>
 					</tr>
-					
+          <!--Bottom Row-->
 					<tr class = "bottom">
 						<td id = "box7" onclick = "moveFunc(id)"></td>
 						<td id = "box8" onclick = "moveFunc(id)"></td>
 						<td id = "box9" onclick = "moveFunc(id)"></td>
 					</tr>
 				</table>
-				
 				<!--Score Board-->
 				<div id = "scoreX">
 					<p id = "playerNameX"></p>
 					<p id = "scoreBoardX">0</p>
 				</div>
-
 				<div id = "scoreO">
 					<p id = "playerNameO"></p>
 					<p id = "scoreBoardO">0<p>
 				</div>
 			</div>
-					
 			<!--Menu-->		
 			<div id = "menu">
 				<p id = "exitButton" class = 'buttons smallButton' onclick = "unpauseGame()">X</p>   
@@ -169,13 +168,11 @@ Preview: https://repl.it/@IghoiseO/TicTacToe
 				</article>
 				<div class = "buttonBox">
 					<button id = "resetButton" class = "buttons" onclick = "backToLastPage(), resetFunc()">New Game</button>
-					<button id = "mainMenuButton" class = "buttons" onclick = "pageManager('frontPage'), resetFunc()">Main Menu</button>
+					<button id = "mainMenuButton" class = "buttons" onclick = "pageManager('frontPage'), resetFunc(), scoreReset()">Main Menu</button>
 				</div>
 			</div>
-
 			<!--JS-->
-			<script src= "page.js"></script>
+			<script src= "setup.js"></script>
 			<script src= "game.js"></script>
-
 		</body>
 	</html>
