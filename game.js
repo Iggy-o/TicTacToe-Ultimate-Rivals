@@ -2,7 +2,7 @@
 //May, 15 2020
 //Youtube: https://www.youtube.com/channel/UCud4cJjtCjEwKpynPz-nNaQ?
 //Github: https://github.com/Iggy-o
-//Preview: https://repl.it/@IghoiseO/TicTacToe
+//Preview: https://repl.it/@IghoiseO/TicTacToe-Ultimate-Rivals
 
 //Part 2: Gameplay
 /*

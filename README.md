@@ -4,4 +4,7 @@ V1.4.4 - This is my first major personal program, started in January 2020 during
 
 Ighoise
 
+Preview The Program: https://repl.it/@IghoiseO/TicTacToe-Ultimate-Rivals
 My Email: iodigie03@gmail.com
+My Youtube Channel: https://www.youtube.com/channel/UCud4cJjtCjEwKpynPz-nNaQ?
+
