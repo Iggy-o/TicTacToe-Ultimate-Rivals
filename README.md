@@ -3,7 +3,6 @@ V1.4.4 - This is my first major personal program, started in January 2020 during
 #### -Ighoise Odigie
 
 
-Links:
 
 Preview The Program: https://repl.it/@IghoiseO/TicTacToe-Ultimate-Rivals
 
