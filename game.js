@@ -7,54 +7,73 @@
 //Part 2: Gameplay
 /*
 (1)Game Settings
-	Saves the Game Difficulty, Gamemode, 
-	and determines the player tags beforehand
+	Saves the Game Difficulty, Gamemode, and determines the player tags beforehand. 
+  Depending on the gamemode that the user chooses (multiplayer/singleplayer) a
+  differend function is ran
 */
-  //If the user chooses to play singleplayer, the following function is ran
 	function gameMode1(input) {
+    //The gamemode is set to singleplayer
 		gameMode = 1;
 		type = gameMode;
+    //The x and o scoreboard text is set
 		$("#playerNameX").text("You");
 		$("#playerNameO").text("Bot");
+    //The victory phrases are altered based on the gamemode
 		xPhrase = "You Win";
 		oPhrase = "You Lose";
+    //The difficulty is set based on what difficulty the user selects
 		difficulty = input;
 	}
 
-  //If the user chooses to play multiplayer, the following function is ran
 	function gameMode2() {
+    //The gamemode is set to single player
 		gameMode = 2;
 		type = gameMode;
+    //The x and o scoreboard text is set
 		$("#playerNameX").text("Player X");
 		$("#playerNameO").text("Player O");
+    //The victory phrases are altered based on 
 		xPhrase = "X Wins";
 		oPhrase = "O Wins";
 	}
 /*
 (2)Turn Manager:
-	Alternates between the two players in the 
-	current game
+	Alternates between the two players in the current game and oly allows for placing 
+  of X's and O's during their designated turns.
 */
 	let playerTurn = 1
 	let allowPlace = true
 	function moveFunc(id) {
     let filler = document.getElementById(id);
+    //Runs when a blank cell is clicked on player 1's turn
     if (filler.innerHTML == '' && playerTurn == 1 && allowPlace == true) {
+      //Places an X in the selected cell
       filler.innerHTML = "X";
+      //Plays an audio file
       pieceAudio();
+      //Checks the current board for a victor
       checkWinner(boardMap(), "real");
+      //Switches the turn to the second player (Human player or AI)
       playerTurn = 2;
     } 
+    //Runs when a blank cell is clicked during player 2's turn and if the gamemode is multiplayer
     else if (filler.innerHTML == '' && playerTurn == 2 && allowPlace == true && type != 1) {
+      //Places an O in the selected cell
       filler.innerHTML = "O";
+      //Plays an audio file
       pieceAudio();
+      //Check the current board for a victor
       checkWinner(boardMap(), "real");
+      //Switches the turn back to the first player
       playerTurn = 1;
     }
+    //Runs after player 1's turn when the gamemoede is singleplayer
     if (type == 1 && playerTurn == 2 && allowPlace != false){
+      //The human player's ability to place tiles is Temporarily turned off
       allowPlace = false;
+      //The AI decides where to play and makes its move
       robotMove();
-      //The check (and other functions) completed at the end of the robotMove function
+      //The check (and other functions) are completed at the end of the robotMove function for technical reasons
     }	
 	}
 
@@ -170,22 +189,27 @@
             }
           }
           else{
-            return 1
+            return 0
           }
         }
         //Once the optimal spot is found, the bot makes its move
         document.getElementById("box" + bestMove).innerHTML = "O";
       }
 
-      //The following are here because they must be carried out after this function and I cannot implement async await
+      //The following are here because they must be carried out after this functions
+
+      //This plays a short audio clip
       pieceAudio();
+      //The human player's abilty to place is turned back on
       allowPlace = true
+      //The board is checked for a victor
       checkWinner(boardMap(), "real");
+      //The turn is switched back to the human player
       playerTurn = 1;
       
     }, 
-    //This sets a random time for the bot to wait to simulate thinking and make it feel more human
-    Math.floor(Math.random() * 500 + 500))	
+    //This sets a random time for the bot to wait to simulate thinking and make the AI feel more human
+    Math.floor(Math.random() * 500 + 1000))	
 	}    
 
 /*
@@ -193,7 +217,6 @@
 	Detects when a player has won the game or if the
 	game ends in a draw
 */
-	
   //This function maps out a copy of the current board and is used a lot elsewhere
   function boardMap(){
     var board = [];
@@ -205,13 +228,16 @@
 
   //This function is used to check when a player has won and is also used by the AI to determine the optimal move
   function checkWinner(board, state) {
-    //Simplifies the checking process by eliminating the need for repeating similiar processes
+    //This simplifies the checking process by eliminating the need for repeating similiar processes
     function isThree(a, b, c) {
       return board[a] == board[b] && board[b] == board[c] && board[a] != ""
     }
 
     //Sets the default value to Tie
     let winner = "Tie";
+
+    //Initializes drawOff
+    let drawOff = false;
 
     //Checks for a HORIZONTAL victory
     for (let rows = 1; rows < 9; rows += 3) {
@@ -240,74 +266,81 @@
       winner = board[2];
       playerWon(state, false, 3, 2);
     }
-
+    
     //Checks for draw
     if (state == "real") {
-      var anyEmptyCells = false
       //Loops through all cells and if any are empty the variable becomes true
+      var anyEmptyCells = false
       for (let i=1; i<10; i++) {
         if(document.getElementById("box" + i).innerHTML == '') {
           anyEmptyCells = true
         }
       }
-      //If the variabel remains false, then the game is a draw
+      //If the variable remains false, then the game is a draw
       if (anyEmptyCells == false  && drawOff != true) {
         playerWon(state, true, "draw", 0)
       }
     }
 
-    function playerWon(state, isDraw, num, num2){
+    //If a win is detected a list of activities must be completed
+    function playerWon(state, isDraw, start, increment){
       if (state == "real"){
+        //If somebody has won, there should be no draws and players should not be allowed to place anymore
         allowPlace = false
-        var drawOff = true
-
-        if (winner == "X" && isDraw != true) {
-          makeColor = "limegreen"
-          endSound("win")
-          colorIndicate(num, num2);
-        } 
-        else if (winner == "O" && type == 1 && isDraw != true){
+        drawOff = true
+        
+        //If the AI has won then play the losing audio and the color indication red
+        if(winner == "O" && type == 1) {
           makeColor = "red"
           endSound("lose")
-          colorIndicate(num, num2);
         }
-        else if (winner == "O" && type == 2 && isDraw != true){
+        //Otherwise it should always play the winning audio and color indicate with green
+        else if (winner == "X"){
           makeColor = "limegreen"
           endSound("win")
-          colorIndicate(num, num2);
         }
+        //Responsible for indicating the winner and the winning pieces with color
+        colorIndicate(start, increment);
         function colorIndicate(num, num2) { 
+          //Changes the color of the pieces depending on the winner (or if it is a draw)
 					if (isDraw == true) {
-            for (let drawBoxes=1; drawBoxes<10; drawBoxes++){
-              document.getElementById("box" + drawBoxes).style.color = "grey"
+            for (let i=1; i<10; i++){
+              document.getElementById("box" + i).style.color = "grey"
             }
 					}
-					
-					for(let extra=0; extra<3*num2; extra+=num2) {
-            document.getElementById("box" + (num+ extra)).style.color = makeColor
+          else {
+            for(let i=0; i<3*num2; i+=num2) {
+              document.getElementById("box" + (num+ i)).style.color = makeColor
+            }
           }
-					
 					//Changing color back to white
 					setTimeout(function(){
-						for (let drawBoxes=1; drawBoxes<10; drawBoxes++){
-              document.getElementById("box" + drawBoxes).style.color = "white"
+						for (let i=1; i<10; i++){
+              document.getElementById("box" + i).style.color = "white"
             }
 					}, 1000)
 			  }
+
+        //Runs a function that deals with the match end tasks
         matchComplete(winner);
       }
     }
 
+    //If the check is just a virtual check by the AI, it returns the winner
     if (state == "virtual") {
-      //If the check is just a virtual check by the AI, it returns the winner
       return winner
     }
   }
+
+	
+	
 /*
-(5)Match End Tasks:
-	Resets the game when the match ends
+(5)Game Reset:
+  Completes a variety of Match end tasks to ensure a smooth 
+  transition into the next match
 */
-	let scoreBoardX = 0;
+  //Increments the scoreboard by 1 depending on the winning player andconfigures the pause menu to become a game end menu
+  let scoreBoardX = 0;
 	let scoreBoardO = 0;
 	function matchComplete(player) {
     if (player == "X") {
@@ -326,13 +359,8 @@
       resetFunc();
     }, 2000)
 	}
-	
-/*
-(6)Game Reset:
-	Runs through each board tile and resets its 
-	value to start a fresh new game
-*/
-  //Resets the board at the end of a match
+
+  //Runs through each board tile and resets its value to start a fresh new game
 	function resetFunc() {
 		for (i=1; i<10; i++) {
 			$('#box' + i).html('');
@@ -341,7 +369,7 @@
 		playerTurn = 1;
 	} 
 
-  //Runs if the user chooses to go to the main menu
+  //Runs if the user chooses to go to the main menu and resets the scoreboard
   function scoreReset() {
     scoreBoardX = 0;
 		$("#scoreBoardX").text(scoreBoardX);
@@ -350,7 +378,7 @@
   }
 
 /*
-(7)Pause Menu:
+(6)Pause Menu:
 	Opens the pause menu and alters the settings
 */
   //Brings up the pause menu when the user clicks the pause button
@@ -369,7 +397,7 @@
 	}
   
 /*
-(8)Program Complete
+(7)Program Complete
 */
 					
 	
