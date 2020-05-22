@@ -299,7 +299,7 @@
           endSound("lose");
         }
         //Otherwise it should always play the winning audio and color indicate with green
-        else if (winner == "X"){
+        else if (winner == "X"||winner == "O"){
           makeColor = "limegreen";
           endSound("win");
         }
