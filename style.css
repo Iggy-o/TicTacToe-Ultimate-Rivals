@@ -27,7 +27,7 @@ overflow: hidden;
 /*Positions the main title*/
 .centerer{
   position: relative;
-  top: 5vh;
+  top: 10vh;
 }
 
 /*Change the color and position of the main title*/
@@ -35,16 +35,18 @@ overflow: hidden;
   position: relative;
   margin: 0;
   padding: 0;
-  font: 12vw 'arial black';
+  font: 8vh arial;
+  font-weight: Bolder;
   color: rgb(150, 150, 150);
 }
 
 /*Changes various attributes of the title's subtitle and sets the red flaming animation*/
 #subtitle{
   position: relative;
-  margin-bottom: 8vh;
+  margin-bottom: 15vh;
   padding: 0;
-  font: 5vw 'arial black';
+  font: 3vh arial;
+  font-weight: Bolder;
   color: rgb(150, 150, 150);
   animation: flames 4s alternate infinite;
 }
@@ -61,12 +63,13 @@ overflow: hidden;
 /*Changes all buttons in the game to inherit similiar qualities*/
 .buttons{
   position: relative;
-  height: 15vh;
+  height: 20vw;
   width: 50vw;
-  margin: 1vh;
-  font: 5vw 'arial black';
+  margin-bottom: 2vh;
+  font: 5vw arial;
+  font-weight: Bolder;
   color: grey;
-  border: grey 4px solid;
+  border: grey 6px solid;
   border-radius: 100px;
   text-align: center;
   outline: 0;
@@ -85,7 +88,7 @@ width: 50vw;
 
 /*Changes all the back buttons to look identical*/
 #backButton{ 
-  height: 7vh;
+  height: 5vh;
   width: 12vh;
   font-size: 2vh;
 }
@@ -93,10 +96,9 @@ width: 50vw;
   position: absolute;
   height: 5vh;
   width: 5vh;
-  top: 1%;
-  left: 90%;
-  font: 4vh arial bold;
-  font-family: sans-serif;
+  top: 15%;
+  left: 85%;
+  font: 4vh arial;
   font-weight: Bolder;
   background-color: white;
   color: rgb(210, 210, 210);
@@ -109,10 +111,10 @@ width: 50vw;
 /*Changes the qualities of the box that contains the main menu's links*/
 #links{
   margin: 0 auto;
-  margin-top: 5vh;
+  margin-top: 2vh;
   position: relative;
-  height: 8vw;
-  width: 35vw;
+  height: 10vw;
+  width: 40vw;
   background-color: rgba(0,0,0,0.2);
   border-radius: 4vw;
   padding: 2%;
@@ -121,8 +123,8 @@ width: 50vw;
 /*Makes the links all look identical*/
 #YT, #Sololearn, #Insta{
   position: relative;
-  width: 8vw;
-  height: 8vw;
+  width: 10vw;
+  height: 10vw;
   padding-left: 1vw;
   padding-right: 1vw;
   opacity: 0.6;
@@ -143,24 +145,24 @@ text-decoration: none;
 /*Style the elements in the credits page*/
 .promo{
   position: relative;
-  font: 3vw arial;
+  font: 2vh arial;
 }
 .smaller{
-  font: 2vw arial;
+  font: 1vh arial;
 }
 
 /*These style the gameboard to look decent and centered*/
 table{
   position: relative;
   margin: 0 auto;
-  transform: translate(0, 10vh);
+  transform: translate(0, 25vh);
   border-collapse: collapse;
   color: white;
   border: 10px solid white;
 }
 td{
-  height: 16vw;
-  Width: 16vw;
+  height: 10vh;
+  Width: 10vh;
   border: 10px solid white;
   font: 10vw arial;
   font-weight: bolder;
@@ -221,23 +223,30 @@ td:hover{
 /*Changes the font of the text that is displayed when a game is done*/
 #gameEndText{
   position: relative;
+  top: 20vh;
+  margin-bottom: 21vh;
   font: 10vw 'arial black';
   color: rgb(150, 150, 150);
 }
 
 /*Slightly alters the default CSS depending on width and height of the device*/
 @media all and (orientation: landscape){
+  .centerer{
+    position: relative;
+    top: 5vh;
+  }
 	#mainTitle{
 		font-size: 12vh;
 	}
 
 	#subtitle{
-		font-size: 5vh
+		font-size: 5vh;
+    margin-bottom: 10vh;
 	}
 
 	.buttons{
 		height: 15vh;
-    width: 50vh;
+    width: 45vh;
 		margin: 1vh;
 		font: 5vh 'arial black';
 	}
@@ -258,7 +267,7 @@ td:hover{
 	#links{
 		margin-top: 5vh;
     height: 8vh;
-    width: 35vh;
+    width: 32.5vh;
     border-radius: 4vh;
 	}
 
@@ -283,6 +292,10 @@ td:hover{
     font-size: 10vh;
 	}	
 
+  table{
+    transform: translate(0, 10vh);
+  }
+
 	#scoreBoardX{
 		top: -15vh;
 		font-size: 8vh;
@@ -305,5 +318,7 @@ td:hover{
 
 	#gameEndText{
 		font: 10vh 'arial black';
+    top: 0;
+    margin-bottom: 0;
 	}
 }
