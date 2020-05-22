@@ -88,7 +88,7 @@
     setTimeout(function(){
       //A predetermined table that sets the difficulty of the AI
       let level = {
-        easy: 2,
+        easy: 1,
         hard: 5,
         insanity: Infinity
       }
@@ -97,10 +97,10 @@
       let foresight = level[difficulty]
 
       //The AI function is ran with the aformentioned foresight level
-      insanityVersion(foresight)
+      artificialIntelligence(foresight)
 
       //This is the AI function that determines where it should move
-      function insanityVersion(foresight) {
+      function artificialIntelligence(foresight) {
         //Mapping out the entire board into a duplicate copy
         var board = boardMap()
 
@@ -130,24 +130,25 @@
             let scores = {
               X: -1,
               O: 1,
-              Tie: 0
+              Tie: 0,
+              null: null
             }
             //This function checks the result of the move and uses the conversion table to convert the returned winner into a numerical value
             let result = scores[checkWinner(board, "virtual")];
 
             //If the move wins instantly it is automatically chosen
-            if (result == 1 && depth == 0) {
+            /*if (result == 1 && depth == 0) {
               return Infinity
-            }
+            }*/
             //Otherwise, the result is returned only if it is not a tie (a.k.a "0")
-            else if (result != 0){
+            if (result != null){
               return result
             }
 
             //Runs if it is the maximizing player's (AI's) turn, its job is to maximize its chances of winning
             if (isMaximizing) {
               //Initializes the bestScore variable as "0"
-              let bestScore = 0
+              let bestScore = -Infinity
               //Loops through every spot on the board
               for (let j=1; j<10; j++) {
                 //Executes if the spot is empty
@@ -159,7 +160,8 @@
                   //Removes the temporary "O"
                   board[j-1] = "";
                   //The resulting scores from each different future move will be compiled into one variable (bestScore)
-                  bestScore += score
+                  bestScore = Math.max(score, bestScore)
+                  //bestScore += score
                 }
               }
               //Returns the best score up the recursive chain
@@ -169,7 +171,7 @@
             //Runs if it is the minimizing player's (User's) turn, its job is to minimize the AIs chances of winning
             else {	
               //Initializes the bestScore variable as "0"
-              let bestScore = 0
+              let bestScore = Infinity
               //Loops through every spot on the board
               for (let p=1; p<10; p++) {
                 //Executes if spot is empty
@@ -181,7 +183,8 @@
                   //Removes the temporary "X"
                   board[p-1] = "";
                   //The resulting scores from each different future move will be compiled into one variable (bestScore)
-                  bestScore += score
+                  bestScore = Math.min(score, bestScore)
+                  //bestScore += score
                 }
               }
               //Returns the best score up the recursive chain
@@ -189,7 +192,8 @@
             }
           }
           else{
-            return 0
+            //If the minimax foresight is cutoff due to AI strength then we choose a random return value
+            return (Math.round((Math.random()*2)-1))
           }
         }
         //Once the optimal spot is found, the bot makes its move
@@ -201,7 +205,7 @@
       //This plays a short audio clip
       pieceAudio();
       //The human player's abilty to place is turned back on
-      allowPlace = true
+      allowPlace = true;
       //The board is checked for a victor
       checkWinner(boardMap(), "real");
       //The turn is switched back to the human player
@@ -221,7 +225,7 @@
   function boardMap(){
     var board = [];
     for (let i=1; i<10; i++) {
-      board.push(document.getElementById("box" + i).innerHTML)
+      board.push(document.getElementById("box" + i).innerHTML);
     }
     return board
   }
@@ -234,9 +238,9 @@
     }
 
     //Sets the default value to Tie
-    let winner = "Tie";
+    let winner = null;
 
-    //Initializes drawOff
+    //Initializes drawOff(prevents draw from being called when a win occurs simultaneously)
     let drawOff = false;
 
     //Checks for a HORIZONTAL victory
@@ -268,36 +272,36 @@
     }
     
     //Checks for draw
-    if (state == "real") {
-      //Loops through all cells and if any are empty the variable becomes true
-      var anyEmptyCells = false
-      for (let i=1; i<10; i++) {
-        if(document.getElementById("box" + i).innerHTML == '') {
-          anyEmptyCells = true
-        }
-      }
-      //If the variable remains false, then the game is a draw
-      if (anyEmptyCells == false  && drawOff != true) {
-        playerWon(state, true, "draw", 0)
+    //Loops through all cells and if any are empty the variable becomes true
+    var anyEmptyCells = false;
+    for (let i=1; i<10; i++) {
+      if(board[i-1] == '') {
+        anyEmptyCells = true;
       }
     }
-
+    //If the variable remains false, then the game is a draw
+    if (anyEmptyCells == false  && drawOff != true) {
+      winner = "Tie";
+      playerWon(state, true, "draw", 0);
+    }
+    
     //If a win is detected a list of activities must be completed
     function playerWon(state, isDraw, start, increment){
+      //If a player has won and the board is also full, the draw should be not considered
+      drawOff = true;
       if (state == "real"){
         //If somebody has won, there should be no draws and players should not be allowed to place anymore
-        allowPlace = false
-        drawOff = true
+        allowPlace = false;
         
         //If the AI has won then play the losing audio and the color indication red
         if(winner == "O" && type == 1) {
-          makeColor = "red"
-          endSound("lose")
+          makeColor = "red";
+          endSound("lose");
         }
         //Otherwise it should always play the winning audio and color indicate with green
         else if (winner == "X"){
-          makeColor = "limegreen"
-          endSound("win")
+          makeColor = "limegreen";
+          endSound("win");
         }
         //Responsible for indicating the winner and the winning pieces with color
         colorIndicate(start, increment);
@@ -305,18 +309,18 @@
           //Changes the color of the pieces depending on the winner (or if it is a draw)
 					if (isDraw == true) {
             for (let i=1; i<10; i++){
-              document.getElementById("box" + i).style.color = "grey"
+              document.getElementById("box" + i).style.color = "grey";
             }
 					}
           else {
             for(let i=0; i<3*num2; i+=num2) {
-              document.getElementById("box" + (num+ i)).style.color = makeColor
+              document.getElementById("box" + (num+ i)).style.color = makeColor;
             }
           }
 					//Changing color back to white
 					setTimeout(function(){
 						for (let i=1; i<10; i++){
-              document.getElementById("box" + i).style.color = "white"
+              document.getElementById("box" + i).style.color = "white";
             }
 					}, 1000)
 			  }
