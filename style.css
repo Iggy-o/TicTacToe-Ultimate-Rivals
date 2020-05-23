@@ -88,7 +88,7 @@ width: 50vw;
 
 /*Changes all the back buttons to look identical*/
 #backButton{ 
-  height: 5vh;
+  height: 6vh;
   width: 12vh;
   font-size: 2vh;
 }

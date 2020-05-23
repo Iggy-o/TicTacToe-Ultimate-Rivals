@@ -88,7 +88,7 @@
     setTimeout(function(){
       //A predetermined table that sets the difficulty of the AI
       let level = {
-        easy: 1,
+        easy: 3,
         hard: 5,
         insanity: Infinity
       }
@@ -97,7 +97,7 @@
       let foresight = level[difficulty]
 
       //The AI function is ran with the aformentioned foresight level
-      artificialIntelligence(foresight)
+      artificialIntelligence(foresight);
 
       //This is the AI function that determines where it should move
       function artificialIntelligence(foresight) {
@@ -403,7 +403,3 @@
 /*
 (7)Program Complete
 */
-					
-	
-							
-				
