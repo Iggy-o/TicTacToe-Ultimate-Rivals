@@ -11,7 +11,7 @@ Note from the Author:
 ### Links
 Preview The Program: https://repl.it/@IghoiseO/TicTacToe-Ultimate-Rivals
 
-My Email: iodigie03@gmail.com
+Inquiries: iodigie03@gmail.com
 
-My Youtube Channel: https://www.youtube.com/channel/UCud4cJjtCjEwKpynPz-nNaQ?
+Youtube: https://www.youtube.com/channel/UCud4cJjtCjEwKpynPz-nNaQ?
 
