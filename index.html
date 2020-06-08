@@ -1,6 +1,6 @@
 <!--
 Ighoise Odigie
-May, 15 2020
+May, 14 2020
 Youtube: https://www.youtube.com/channel/UCud4cJjtCjEwKpynPz-nNaQ?
 Github: https://github.com/Iggy-o
 Preview: https://repl.it/@IghoiseO/TicTacToe-Ultimate-Rivals
@@ -11,12 +11,15 @@ Preview: https://repl.it/@IghoiseO/TicTacToe-Ultimate-Rivals
 		<head>
 			<!--Tab Title-->
 			<title>TicTacToe: Ultimate Rivals</title>
-
+      
+      <!--Page Favicon Link-->
+      <link rel="icon" href="assets/images/favicon.ico" type="image/png" sizes="16x16">
+      
 			<!--Page Resize-->
 			<meta name = "viewport" content = "width=device-width, initial-scale=1.0">
 
 			<!--CSS-->
-			<link rel="stylesheet" type="text/css" href="style.css">
+			<link rel="stylesheet" type="text/css" href="public/style.css">
 
 			<!--Jquery-->
 			<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js">
@@ -26,22 +29,22 @@ Preview: https://repl.it/@IghoiseO/TicTacToe-Ultimate-Rivals
 			<!--Audio-->
 			<div id = "audio">
 				<audio id = "mainMusic" loop>
-					<source src = "sounds/backtrack.mp3" type="audio/mpeg" > 
+					<source src = "assets/sounds/backtrack.mp3" type="audio/mpeg" > 
 				</audio>
 				<audio id = "clickSound">
-					<source src = "sounds/menuclick.wav" type="audio/wav"> 
+					<source src = "assets/sounds/menuclick.wav" type="audio/wav"> 
 				</audio>
 				<audio id = "menuClick" >
-					<source src = "sounds/pauseclick.wav" type="audio/wav"> 
+					<source src = "assets/sounds/pauseclick.wav" type="audio/wav"> 
 				</audio>
 				<audio id = "winSound">
-					<source src = "sounds/won.wav" type="audio/wav"> 
+					<source src = "assets/sounds/won.wav" type="audio/wav"> 
 				</audio>
 				<audio id = "loseSound">
-					<source src = "sounds/lost.mp3" type="audio/mpeg"> 
+					<source src = "assets/sounds/lost.mp3" type="audio/mpeg"> 
 				</audio>
 				<audio id = "pieceSound">
-					<source src = "sounds/piece.wav" type="audio/wav"> 
+					<source src = "assets/sounds/piece.wav" type="audio/wav"> 
 				</audio>
 			</div>
 			<!--Main Menu-->
@@ -61,13 +64,13 @@ Preview: https://repl.it/@IghoiseO/TicTacToe-Ultimate-Rivals
           <!--Personal Links-->
 					<div id = "links">
 						<a href = "https://www.youtube.com/channel/UCud4cJjtCjEwKpynPz-nNaQ" target = '_blank' >
-							<img src = "images/youtube.webp" height = "50px" width = "50px" alt = "Youtube" id = "YT"/>
+							<img src = "assets/images/youtube.webp" height = "50px" width = "50px" alt = "Youtube" id = "YT"/>
 						</a>
 						<a href = "https://www.sololearn.com/Profile/14720144" target = '_blank' >
-							<img src = "images/sololearn.png" height = "50px" width = "50px" alt = "Sololearn" id = "Sololearn"/>
+							<img src = "assets/images/sololearn.png" height = "50px" width = "50px" alt = "Sololearn" id = "Sololearn"/>
 						</a>
 						<a href = "https://github.com/Iggy-o" target = '_blank' >
-							<img src = "images/github.png" height = "50px" width = "50px" alt = "Github" id = "Insta"/>
+							<img src = "assets/images/github.png" height = "50px" width = "50px" alt = "Github" id = "Insta"/>
 						</a>
 					</div>
 				</article>	
@@ -170,7 +173,7 @@ Preview: https://repl.it/@IghoiseO/TicTacToe-Ultimate-Rivals
 				</div>
 			</div>
 			<!--JS-->
-			<script src= "setup.js"></script>
-			<script src= "game.js"></script>
+			<script src= "public/src/setup.js"></script>
+			<script src= "public/src/game.js"></script>
 		</body>
 	</html>
