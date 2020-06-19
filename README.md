@@ -1,8 +1,4 @@
 # TicTacToe: Ultimate Rivals
-
-#### TicTacToe taken to the next level, face off against the ALMIGHTY AI to test your skills! 
-
-
 [![License](https://img.shields.io/badge/Quick-Preview-brightgreen)](https://repl.it/@IghoiseO/TicTacToe-Ultimate-Rivals)
 
 <img src="assets/images/preview1.png" alt="preview" height = "250px">
