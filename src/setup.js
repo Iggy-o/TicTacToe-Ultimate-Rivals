@@ -4,7 +4,6 @@
 //Github: https://github.com/Iggy-o
 //Preview: https://repl.it/@IghoiseO/TicTacToe-Ultimate-Rivals
 
-
 //Preliminary Tasks: Versioning
 var versionNumber = "Version 2.1.5"
 $("#version").text(versionNumber)
@@ -76,3 +75,7 @@ $("#version").text(versionNumber)
         .prop("volume", 0.2)
     }  
   }
+
+//This fixes audio delay on Safari
+const AudioContext = window.AudioContext || window.webkitAudioContext;
+const audioCtx = new AudioContext();

@@ -68,8 +68,8 @@ overflow: hidden;
   margin-bottom: 2vh;
   font: 5vw arial;
   font-weight: Bolder;
-  color: grey;
-  border: grey 6px solid;
+  color: rgb(128, 128, 128);
+  border: rgb(128, 128, 128) 6px solid;
   border-radius: 100px;
   text-align: center;
   outline: 0;
@@ -187,14 +187,14 @@ td:hover{
   position: relative;
   top: -15vw;
   font: 8vw arial black;
-  color: grey;
+  color: rgb(128, 128, 128);
 }
 #playerNameX{
   position: relative;
   top: -7vw;
   font: 7vw arial black;
   font-weight: bolder;
-  color: grey;
+  color: rgb(128, 128, 128);
 }
 
 /*These change the style of the scoreboard for O*/
@@ -210,14 +210,14 @@ td:hover{
   position: relative;
   top: -15vw;
   font: 8vw arial black;
-  color: grey;
+  color: rgb(128, 128, 128);
 }
 #playerNameO{
   position: relative;
   top: -7vw;
   font: 7vw arial black;
   font-weight: bolder;
-  color: grey;
+  color: rgb(128, 128, 128);
 }
 
 /*Changes the font of the text that is displayed when a game is done*/
