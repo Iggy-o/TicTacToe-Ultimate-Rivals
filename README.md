@@ -1,5 +1,5 @@
 # TicTacToe: Ultimate Rivals
-### A TicTacToe AI based on the infamous minimax algorithm
+### A TicTacToe AI based on the infamous <a href = "https://en.wikipedia.org/wiki/Minimax">minimax algorithm </a>
 [![License](https://img.shields.io/badge/Quick-Preview-brightgreen)](https://repl.it/@IghoiseO/TicTacToe-Ultimate-Rivals) 
 [![License](http://img.shields.io/:license-mit-blue.svg?style=flat-square)](https://github.com/Iggy-o/TicTacToe-Ultimate-Rivals/blob/Primary-Branch/LICENSE)
 
